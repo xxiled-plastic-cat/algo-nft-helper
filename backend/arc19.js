@@ -8,7 +8,7 @@ export const ARC3_NAME_SUFFIX = '@arc3'
 export const ARC3_URL_SUFFIX = '#arc3'
 export const METADATA_FILE = 'metadata.json'
 export const JSON_TYPE = 'application/json'
-const proxy_path = 'https://algogator.mypinata.cloud/ipfs/';
+const proxy_path = ''; //Add your proxy_path here
 
 export function resolveProtocol(url, reserveAddr) {
 
