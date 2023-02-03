@@ -1,6 +1,6 @@
 import { resolveProtocol } from './arc19.js'
 
-const proxy_path = 'https://algogator.mypinata.cloud/ipfs/';
+const proxy_path = ''; //add your proxy ipfs node
 
 const parseNFTImage = async (nft) => {
     let ipfs_proxy = '';
@@ -26,7 +26,7 @@ const parseNFTImage = async (nft) => {
             if (response.headers.get('Content-Type') === 'application/json') {
                 let arc3Data = await response.json();
                 let arc3ImageURL = arc3Data['image'];
-                if (arc3ImageURL.startsWith('ipfs://')) ipfs_proxy = `https://algogator.mypinata.cloud/ipfs/${arc3ImageURL.split('ipfs://')[1]}`;
+                if (arc3ImageURL.startsWith('ipfs://')) ipfs_proxy = `${proxy_path}/${arc3ImageURL.split('ipfs://')[1]}`;
 
             } else {
                 ipfs_proxy = arc19url;
@@ -39,7 +39,7 @@ const parseNFTImage = async (nft) => {
             if (response.headers.get('Content-Type' === 'application/json')) {
                 const data = await response.json();
                 let arc3ImageURL = data['image'];
-                if (arc3ImageURL.startsWith('ipfs://')) arc3ImageURL = `https://algogator.mypinata.cloud/ipfs/${arc3ImageURL.split('ipfs://')[1]}`;
+                if (arc3ImageURL.startsWith('ipfs://')) arc3ImageURL = `${proxy_path}/${arc3ImageURL.split('ipfs://')[1]}`;
                 ipfs_proxy = arc3ImageURL;
             }
             else {
@@ -75,7 +75,7 @@ const parseNFTImage2 = async (nft) => {
             if (response.headers.get('Content-Type') === 'application/json') {
                 let arc3Data = await response.json();
                 let arc3ImageURL = arc3Data['image'];
-                if (arc3ImageURL.startsWith('ipfs://')) ipfs_proxy = `https://algogator.mypinata.cloud/ipfs/${arc3ImageURL.split('ipfs://')[1]}`;
+                if (arc3ImageURL.startsWith('ipfs://')) ipfs_proxy = `${proxy_path}/${arc3ImageURL.split('ipfs://')[1]}`;
 
             } else {
                 ipfs_proxy = arc19url;
@@ -88,7 +88,7 @@ const parseNFTImage2 = async (nft) => {
             const dataResponse = await fetch(ipfs_proxy);
             const data = await dataResponse.json();
             let arc3ImageURL = data['image'];
-            if (arc3ImageURL.startsWith('ipfs://')) arc3ImageURL = `https://algogator.mypinata.cloud/ipfs/${arc3ImageURL.split('ipfs://')[1]}`;
+            if (arc3ImageURL.startsWith('ipfs://')) arc3ImageURL = `${proxy_path}/${arc3ImageURL.split('ipfs://')[1]}`;
             ipfs_proxy = arc3ImageURL;
         }
         else {
